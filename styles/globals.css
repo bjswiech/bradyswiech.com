@@ -1,0 +1,492 @@
+/* styles/globals.css */
+
+/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body and overall text settings */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f4f4f4;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Container for pages */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  flex: 1;
+}
+
+/* Titles and headings */
+h1, h2, h3 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(254, 187, 129);
+}
+
+/* Main title styles */
+.title {
+  font-size: 3rem;
+  text-align: center;
+  color: rgb(2, 93, 0);;
+  margin-bottom: 40px;
+}
+
+/* Button styles */
+.button {
+  background-color: rgb(2, 93, 0);;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #1a252f;
+}
+
+/* Footer styles */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+  margin-top: auto;
+  width: 100%;
+}
+
+/* Link styles */
+a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Section container for flexibility */
+.section {
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.section:nth-child(even) {
+  flex-direction: row-reverse; /* Alternate image and text alignment */
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.section p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Image styles for sections */
+.section img {
+  width: 40%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Content styles for sections */
+.section .content {
+  width: 55%;
+}
+
+/* Sticky Header */
+.header {
+  position: sticky; /* Makes the header stick to the top of the viewport */
+  top: 0; /* Position it at the very top */
+  z-index: 1000; /* Ensure it stays above other elements */
+  background-color: rgb(2, 93, 0); /* Add a background color to prevent transparency */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for separation */
+  padding: 1rem; /* Add padding for spacing */
+}
+
+.nav {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0.25rem 0;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  border-left: 1px solid rgb(255, 218, 185);
+  text-align: center;
+  flex: 1;
+}
+
+.nav-item:first-child {
+  border-left: none;
+}
+
+.nav-item a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.nav-item a:hover {
+  background-color: #333;
+}
+
+/* Collage container */
+.collage {
+  display: flex; /* Arrange images side by side */
+  gap: 1rem; /* Add spacing between images */
+  justify-content: center; /* Center the collage */
+  margin-bottom: 1.5rem; /* Add spacing below the collage */
+}
+
+/* Collage images */
+.collage-image {
+  width: 45%; /* Adjust the size of each image */
+  border-radius: 8px; /* Add rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  object-fit: contain; /* Ensure the images maintain their aspect ratio */
+}
+
+/* Tech section styles */
+.tech-section {
+  margin-bottom: 2rem;
+}
+
+.tech-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem; /* Add spacing below the heading */
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  gap: 0.5rem; /* Add spacing between items */
+  list-style: none; /* Remove default list styling */
+  padding: 0; /* Remove default padding */
+}
+
+.tech-list li {
+  background-color: #f3f4f6; /* Light background for contrast */
+  padding: 0.5rem 1rem; /* Add padding for better spacing */
+  border-radius: 9999px; /* Fully rounded corners */
+  font-size: 0.9rem; /* Slightly smaller font size */
+  color: #111827; /* Dark text color for readability */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effect */
+}
+
+.tech-list li:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.project-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #666;
+}
+
+.project-card .button {
+  display: inline-block;
+  background-color: rgb(2, 93, 0);;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.project-card .button:hover {
+  background-color: #1a252f;
+}
+
+.project-card .tech-stack {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-card .tech-stack li {
+  background-color: #f3f4f6;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  color: #111827;
+}
+
+/* Category buttons */
+.category-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.category-button {
+  background-color: #f3f4f6; /* Light background for inactive buttons */
+  color: #333; /* Dark text for inactive buttons */
+  border: 1px solid #ddd; /* Add a subtle border for inactive buttons */
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+.category-button:hover {
+  background-color: #e5e7eb; /* Slightly darker background on hover */
+  border-color: #bbb; /* Darker border on hover */
+}
+
+.category-button.active {
+  background-color: rgb(2, 93, 0);; /* Dark background for active button */
+  color: white; /* White text for active button */
+  border: 1px solid rgb(2, 93, 0);; /* Match border with background */
+  cursor: default; /* Disable pointer cursor for active button */
+}
+
+/* Tech list */
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.tech-list li {
+  background-color: #f3f4f6;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  color: #111827;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tech-list li:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Disc Golf Section Styles */
+.why-i-love-disc-golf {
+  margin-top: 2rem;
+  font-size: 1.2rem; /* Increased font size for better readability */
+  line-height: 1.8; /* Improved line spacing */
+  color: rgb(0, 0, 0); /* Updated color to match theme */
+}
+
+.discs-in-my-bag {
+  margin-top: 2rem;
+}
+
+.disc-golf-title {
+  color:  rgb(2, 93, 0);
+}
+
+
+.discs-in-my-bag ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 1rem; /* Added spacing above the list */
+}
+
+.discs-in-my-bag li {
+  margin-bottom: 0.75rem; /* Increased spacing between list items */
+  font-size: 1rem; /* Slightly larger font size */
+  color: #555; /* Updated color for better contrast */
+  padding: 0.5rem; /* Added padding for better spacing */
+  background-color: #f9f9f9; /* Added background color for better visibility */
+  border-radius: 8px; /* Rounded corners for list items */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visual effect */
+}
+
+.discs-in-my-bag li:hover {
+  background-color: #e5e7eb; /* Slightly darker background on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  transform: scale(1.02); /* Slight zoom effect on hover */
+  transition: all 0.2s ease-in-out;
+}
+
+/* Social media icons container */
+.social-icons {
+  display: flex; /* Arrange icons in a row */
+  gap: 1rem; /* Add spacing between icons */
+  margin-top: 1rem; /* Add spacing above the icons */
+}
+
+/* Individual social media icons */
+.social-icons a {
+  display: inline-block;
+  width: 40px; /* Set a fixed size for the icons */
+  height: 40px;
+}
+
+.social-icons img {
+  width: 100%; /* Ensure the image fits the container */
+  height: 100%;
+  object-fit: contain; /* Maintain aspect ratio */
+}
+
+/* Faith page container */
+.faith-page {
+  min-height: 100vh; /* Ensure the container covers the full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Faith content container */
+.faith-container {
+  max-width: 800px;
+  width: 100%;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 2rem;
+  text-align: left;
+}
+
+/* Faith header */
+.faith-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Faith icon */
+.faith-icon {
+  color: rgb(2, 93, 0); /* gren color for the icon */
+  width: 2rem;
+  height: 2rem;
+}
+
+/* Title */
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+/* Faith paragraphs */
+.faith-paragraph {
+  font-size: 1.2rem;
+  color: #374151; /* Gray text */
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+/* Faith quote */
+.faith-quote {
+  background-color: #e0fee4; /* Light gren background */
+  border-left: 4px solid rgb(2, 93, 0); /* gren border */
+  padding: 1rem;
+  border-radius: 8px;
+  font-style: italic;
+  color: rgb(2, 93, 0); /* Darker gren text */
+  margin-bottom: 1.5rem;
+}
+
+/* Faith quote author */
+.faith-quote-author {
+  font-weight: bold;
+  font-style: normal;
+  display: block;
+  margin-top: 0.5rem;
+  text-align: right;
+}
+
+/* About page container */
+/* About page container */
+.about-page {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto; /* Center the content */
+  color: rgb(0, 0, 0);; /* Match the theme */
+  line-height: 1.8; /* Improve readability */
+  background-color: #f9f9f9; /* Subtle background color */
+  border-radius: 16px; /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Title */
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: rgb(2, 93, 0); /* Dark gren */
+}
+
+/* About sections */
+.about-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow for sections */
+}
+
+/* Section titles */
+.section-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: rgb(2, 93, 0);; /* gren color for section titles */
+}
+
+/* Links */
+.link {
+  color: #2563eb; /* gren color for links */
+  text-decoration: underline;
+}
+
+.link:hover {
+  color: #1e40af; /* Darker gren on hover */
+  text-decoration: none;
+}
