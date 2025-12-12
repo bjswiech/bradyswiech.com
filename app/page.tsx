@@ -1,286 +1,67 @@
 'use client';
-import { useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
-import ProjectCard from '../components/project-card';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInstagram, faTiktok, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import Link from 'next/link';
 
 export default function Home() {
-  const [selectedCategory, setSelectedCategory] = useState<keyof typeof technologies>('Frontend');
-  const sectionsRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry, index) => {
-          if (entry.isIntersecting) {
-            setTimeout(() => {
-              entry.target.classList.add('visible');
-              // Animate skills list when skills section is visible
-              const skillsList = entry.target.querySelector('.skills-list');
-              if (skillsList) {
-                skillsList.classList.add('visible');
-              }
-            }, index * 100);
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
-    );
-
-    const sections = sectionsRef.current?.querySelectorAll('.animate-section');
-    sections?.forEach((section) => observer.observe(section));
-
-    return () => observer.disconnect();
-  }, []);
-
-  const technologies = {
-    Frontend: ['React', 'React Native', 'Next.js', 'HTML5', 'CSS3'],
-    Backend: ['Node.js', 'PostgreSQL', 'Firebase', 'SQLite'],
-    Languages: ['TypeScript', 'JavaScript', 'Python', 'Java', 'C++'],
-    Tools: ['Git & GitHub', 'Figma', 'VS Code'],
-  };
-
   return (
-    <div ref={sectionsRef} className="main-wrapper">
-      {/* Hero Section */}
-      <section id="home" className="hero-section">
-        <div className="hero-container">
-          <div className="hero-left">
-            <p className="hero-greeting">Hello, my name is</p>
-            <h1 className="hero-name">Brady Swiech</h1>
-            <p className="hero-tagline">I&apos;m a developer, disc golfer,<br />and student.</p>
-            <a href="#contact" className="hero-button">Get in Touch</a>
-          </div>
-          <div className="hero-divider"></div>
-          <div className="hero-right">
-            <div className="hero-image-container">
-              <Image
-                src="/profile.jpg"
-                alt="Brady Swiech"
-                width={500}
-                height={500}
-                className="hero-image"
-                priority
-              />
-            </div>
-          </div>
-        </div>
-        <div className="hero-social">
-          <a href="https://github.com/bjswiech" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-            <FontAwesomeIcon icon={faGithub} />
-          </a>
-          <a href="https://linkedin.com/in/brady-swiech-1a8a59239" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <FontAwesomeIcon icon={faLinkedin} />
-          </a>
+    <main className="page-content">
+      <h1 className="title">Welcome to My Personal Website</h1>
+
+      <section className="section about-me">
+      <img
+        src="/profile.jpg"
+        alt="Profile Picture"
+        style={{
+          maxWidth: '200px',
+          borderRadius: '50%',
+          objectFit: 'cover',
+          border: '3px solid #2c3e50', // Added border
+        }}
+      />
+
+        <div className="content">
+          <h2>About Me</h2>
+          <p>
+            I'm a junior computer science student at Calvin University who loves building creative tech solutions and competing in collegiate disc golf tournaments. Faith, community, and innovation drive everything I do.
+          </p>
+          <Link href="/about" className="button">View About</Link>
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="section animate-section">
-        <div className="section-container">
-          <h2 className="section-title">About Me</h2>
-          <div className="about-content">
-            <div className="about-text">
-              <p>
-                I am a junior Computer Science student at Calvin University, passionate about 
-                building software solutions and competing in collegiate disc golf.
-              </p>
-              <p>
-                I study Computer Science at Calvin University, combining technical skills with 
-                creativity and innovation. I have a passion for creating and building systems, 
-                whether it be a new software project or solving complex problems. I am always 
-                looking to learn and grow, and I am constantly seeking new challenges and opportunities.
-              </p>
-            </div>
-            <div className="about-badges">
-              <div className="badge">Developer</div>
-              <div className="badge">Student</div>
-              <div className="badge">Athlete</div>
-              <div className="badge">Creator</div>
-            </div>
-          </div>
+      <section className="section">
+        <div className="collage">
+          <img src="/sprout-logo.png" alt="Sprout Logo" className="collage-image" />
+          <img src="/vigil-logo.png" alt="Vigil Logo" className="collage-image" />
+        </div>
+        <div className="content">
+          <h2>Portfolio</h2>
+          <p>
+            Take a look at some of the software projects I’ve built—from a mobile workout timer app to an investment simulator. I enjoy blending technical skill with practical utility.
+          </p>
+          <Link href="/portfolio" className="button">View Portfolio</Link>
         </div>
       </section>
 
-      {/* Skills & Tools Section */}
-      <section id="skills" className="section animate-section">
-        <div className="section-container">
-          <h2 className="section-title">Skills & Tools</h2>
-          <div className="skills-content">
-            <div className="skills-categories">
-              {Object.keys(technologies).map((category) => (
-                <button
-                  key={category}
-                  className={`skill-category ${selectedCategory === category ? 'active' : ''}`}
-                  onClick={() => setSelectedCategory(category as keyof typeof technologies)}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-            <ul className="skills-list">
-              {technologies[selectedCategory].map((tech) => (
-                <li key={tech} className="skill-item">
-                  {tech}
-                </li>
-              ))}
-            </ul>
-          </div>
+      <section className="section">
+        <img src="/disc-golf.jpg" alt="Disc Golf" />
+        <div className="content">
+          <h2>Disc Golf</h2>
+          <p>
+            I compete at the collegiate level and love the blend of strategy, athleticism, and community in disc golf. Check out my bag, ratings, and socials!
+          </p>
+          <Link href="/disc-golf" className="button">Explore Disc Golf</Link>
         </div>
       </section>
 
-      {/* Projects Section */}
-      <section id="portfolio" className="section animate-section">
-        <div className="section-container">
-          <h2 className="section-title">Projects</h2>
-          <div className="projects-grid">
-            <ProjectCard
-              title="Vigil - Workout Organizer"
-              description="A mobile application workout organizer. Built alongside 5 others, our goal was to blend effective workouts with interactive recovery, ensuring that users maximize their time at the gym. This was created for my Software Engineering course at Calvin University."
-              link="https://github.com/calvin-cs262-fall2024-no-pain-no-main/no-pain-no-main-client"
-              techStack={['React Native', 'Expo', 'TypeScript', 'PostgreSQL']}
-            />
-            <ProjectCard
-              title="Sprout - Stock Trader"
-              description="A webpage designed to display stock data and allow users to buy and sell stocks with fake money. Used a cloud function to update stock data with real time information. This was developed alongside 3 others for my Web Development course at Calvin University."
-              link="https://github.com/calvin-cs336-finalproject/sprout-client"
-              techStack={['React', 'Node.js', 'Firebase', 'TypeScript']}
-            />
-          </div>
+      <section className="section">
+        <img src="/faith.png" alt="Faith" />
+        <div className="content">
+          <h2>Faith</h2>
+          <p>
+            My faith in Christ is at the center of my life. Learn more about how I’ve grown spiritually and how that shapes who I am.
+          </p>
+          <Link href="/faith" className="button">Read My Testimony</Link>
         </div>
       </section>
-
-      {/* Disc Golf Section */}
-      <section id="disc-golf" className="section animate-section">
-        <div className="section-container">
-          <h2 className="section-title">Disc Golf</h2>
-          <div className="disc-content">
-            <div className="disc-text">
-              <div className="disc-stats">
-                <div className="disc-stat">
-                  <span className="stat-label">PDGA Number</span>
-                  <a href="https://www.pdga.com/player/207735" target="_blank" rel="noopener noreferrer" className="stat-value">
-                    207735
-                  </a>
-                </div>
-                <div className="disc-stat">
-                  <span className="stat-label">PDGA Rating</span>
-                  <span className="stat-value">918</span>
-                </div>
-              </div>
-              <p>
-                Disc golf is more than just a game — it&apos;s a passion that combines skill, 
-                strategy, and nature. Every round offers a new challenge, whether it&apos;s 
-                mastering a tricky hole or enjoying a beautiful day outdoors.
-              </p>
-              <h3>Discs in My Bag</h3>
-              <ul className="disc-list">
-                <li><strong>Putters:</strong> Mint Discs UFO (favorite), Innova Nova (×3), Innova AviarX3</li>
-                <li><strong>Midranges:</strong> Innova Roc3, Legacy Recluse, Discmania Origin, Latitude 64 Compass</li>
-                <li><strong>Fairway Drivers:</strong> Mint Discs Jackalope, Mint Discs Alpha, Innova Teebird, Prodigy F1</li>
-                <li><strong>Distance Drivers:</strong> MVP Timelapse, Innova Boss, Wild Discs Great White, Innova Destroyer</li>
-              </ul>
-              <div className="disc-social">
-                <h3>Follow My Game</h3>
-                <div className="disc-social-icons">
-                  <a href="https://www.instagram.com/bswizler.discgolf" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    <FontAwesomeIcon icon={faInstagram} />
-                  </a>
-                  <a href="https://www.tiktok.com/@bswizler.discgolf" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-                    <FontAwesomeIcon icon={faTiktok} />
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="disc-image-wrapper">
-              <Image 
-                src="/disc-golf.jpg" 
-                alt="Disc Golf" 
-                width={500}
-                height={600}
-                className="disc-image"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Faith Section */}
-      <section id="faith" className="section animate-section">
-        <div className="section-container">
-          <h2 className="section-title">Faith</h2>
-          <div className="faith-content">
-            <div className="faith-text">
-              <p>
-                On <strong>February 12, 2025</strong>, everything changed. After years of 
-                battling depression and feeling spiritually distant, I cried out to God with 
-                an honest question — should I move on or keep hoping? On that very day, 
-                I felt something I hadn&apos;t in years: <strong>peace, freedom, and the 
-                absolute presence of God.</strong>
-              </p>
-              <p>
-                It was the first time I had <em>zero doubt</em> that God is real. My depression 
-                lifted. My anger and hopelessness vanished. And I knew — not just in my head, 
-                but in my heart — that God had heard me.
-              </p>
-              <blockquote className="scripture">
-                <p>
-                  I waited patiently for the Lord; and he inclined unto me, and heard my cry.
-                </p>
-                <p>
-                  He brought me up also out of an horrible pit, out of the miry clay, and set 
-                  my feet upon a rock, and established my goings.
-                </p>
-                <p>
-                  And he hath put a new song in my mouth, even praise unto our God: many shall 
-                  see it, and fear, and shall trust in the Lord.
-                </p>
-                <cite>— Psalm 40:1-3 KJV</cite>
-              </blockquote>
-              <p>
-                That verse now lives in me. It&apos;s a daily reminder of how deeply God loves, 
-                and how faithfully He shows up when we surrender. This is my testimony: 
-                <strong> God is real, God is good, and God changed my life.</strong>
-              </p>
-            </div>
-            <div className="faith-image-wrapper">
-              <Image 
-                src="/faith.png" 
-                alt="Faith" 
-                width={400}
-                height={500}
-                className="faith-image"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="section animate-section">
-        <div className="section-container">
-          <h2 className="section-title contact-title">Contact Me</h2>
-          <div className="contact-content">
-            <p>
-              Interested in working together or just want to say hi? Feel free to reach out!
-            </p>
-            <div className="contact-links">
-              <a href="https://linkedin.com/in/brady-swiech-1a8a59239" target="_blank" rel="noopener noreferrer" className="contact-link">
-                <FontAwesomeIcon icon={faLinkedin} />
-                <span>LinkedIn</span>
-              </a>
-              <a href="https://github.com/bjswiech" target="_blank" rel="noopener noreferrer" className="contact-link">
-                <FontAwesomeIcon icon={faGithub} />
-                <span>GitHub</span>
-              </a>
-              <a href="mailto:bjswiech.bs@gmail.com" className="contact-link">
-                <span>Email</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+    </main>
   );
 }
