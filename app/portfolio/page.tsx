@@ -1,8 +1,9 @@
 'use client';
 import { useState } from 'react';
+import Link from 'next/link';
 import ProjectCard from '../../components/project-card';
 
-export default function Portfolio() {
+export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState<keyof typeof technologies>('Frontend');
 
   const technologies = {
@@ -22,7 +23,9 @@ export default function Portfolio() {
           {Object.keys(technologies).map((category) => (
             <button
               key={category}
-              className={`category-button ${selectedCategory === category ? 'active' : ''}`}
+              className={`category-button ${
+                selectedCategory === category ? 'active' : ''
+              }`}
               onClick={() => setSelectedCategory(category as keyof typeof technologies)}
             >
               {category}
@@ -38,13 +41,13 @@ export default function Portfolio() {
 
       <ProjectCard
         title="Vigil"
-        description="A mobile app that helps users create and manage workouts with optimized rest timing."
+        description="A mobile app that lets users create workouts focusing on optimizing rest time."
         link="https://github.com/calvin-cs262-fall2024-no-pain-no-main/no-pain-no-main-client"
         techStack={['React Native', 'Expo', 'TypeScript', 'PostgreSQL']}
       />
       <ProjectCard
         title="Sprout"
-        description="A web app that uses real stock market data to teach investment strategies using simulated money."
+        description="A web app that uses real stock data to teach people how to invest using funny money."
         link="https://github.com/calvin-cs336-finalproject/sprout-client"
         techStack={['React', 'Node.js', 'Firebase', 'TypeScript']}
       />
