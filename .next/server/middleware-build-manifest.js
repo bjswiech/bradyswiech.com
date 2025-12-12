@@ -17,6 +17,9 @@ globalThis.__BUILD_MANIFEST = {
     "static/chunks/_e69f0d32._.js",
     "static/chunks/_93808211._.js"
   ],
+  "polyfillFiles": [],
+  "lowPriorityFiles": [],
+  "rootMainFiles": [],
   "ampFirstPages": []
 };
 globalThis.__BUILD_MANIFEST.lowPriorityFiles = [
