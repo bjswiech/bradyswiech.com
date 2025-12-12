@@ -5,11 +5,41 @@ import ProjectCard from '../components/project-card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faTiktok, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
+const technologies = {
+  Frontend: ['React', 'React Native', 'Next.js', 'HTML5', 'CSS3'],
+  Backend: ['Node.js', 'PostgreSQL', 'Firebase', 'SQLite'],
+  Languages: ['TypeScript', 'JavaScript', 'Python', 'Java', 'C++'],
+  Tools: ['Git & GitHub', 'Figma', 'VS Code'],
+};
+
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState<keyof typeof technologies>('Frontend');
+  const [pdgaRating, setPdgaRating] = useState<string>('929');
+  const [ratingChange, setRatingChange] = useState<number | null>(null);
   const sectionsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Fetch PDGA rating
+    fetch('/api/pdga-rating')
+      .then(res => res.json())
+      .then(data => {
+        if (data.rating) {
+          const currentRating = parseInt(data.rating);
+          setPdgaRating(data.rating);
+          
+          // Use previous rating from API (from PDGA's last update)
+          if (data.previousRating) {
+            const previousRating = parseInt(data.previousRating);
+            const change = currentRating - previousRating;
+            setRatingChange(change);
+          }
+        }
+      })
+      .catch(err => {
+        console.error('Failed to fetch PDGA rating:', err);
+        // Keep default rating if fetch fails
+      });
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry, index) => {
@@ -34,13 +64,6 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
-  const technologies = {
-    Frontend: ['React', 'React Native', 'Next.js', 'HTML5', 'CSS3'],
-    Backend: ['Node.js', 'PostgreSQL', 'Firebase', 'SQLite'],
-    Languages: ['TypeScript', 'JavaScript', 'Python', 'Java', 'C++'],
-    Tools: ['Git & GitHub', 'Figma', 'VS Code'],
-  };
-
   return (
     <div ref={sectionsRef} className="main-wrapper">
       {/* Hero Section */}
@@ -56,7 +79,7 @@ export default function Home() {
           <div className="hero-right">
             <div className="hero-image-container">
               <Image
-                src="/profile.jpg"
+        src="/profile.jpg"
                 alt="Brady Swiech"
                 width={500}
                 height={500}
@@ -166,7 +189,15 @@ export default function Home() {
                 </div>
                 <div className="disc-stat">
                   <span className="stat-label">PDGA Rating</span>
-                  <span className="stat-value">918</span>
+                  <div className="stat-value-container">
+                    <span className="stat-value">{pdgaRating}</span>
+                    {ratingChange !== null && ratingChange !== 0 && (
+                      <span className={`rating-change ${ratingChange > 0 ? 'positive' : 'negative'}`}>
+                        <span className="rating-arrow">{ratingChange > 0 ? '↑' : '↓'}</span>
+                        <span className="rating-change-value">{Math.abs(ratingChange)}</span>
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
               <p>
@@ -175,12 +206,41 @@ export default function Home() {
                 mastering a tricky hole or enjoying a beautiful day outdoors.
               </p>
               <h3>Discs in My Bag</h3>
-              <ul className="disc-list">
-                <li><strong>Putters:</strong> Mint Discs UFO (favorite), Innova Nova (×3), Innova AviarX3</li>
-                <li><strong>Midranges:</strong> Innova Roc3, Legacy Recluse, Discmania Origin, Latitude 64 Compass</li>
-                <li><strong>Fairway Drivers:</strong> Mint Discs Jackalope, Mint Discs Alpha, Innova Teebird, Prodigy F1</li>
-                <li><strong>Distance Drivers:</strong> MVP Timelapse, Innova Boss, Wild Discs Great White, Innova Destroyer</li>
-              </ul>
+              <div className="disc-categories">
+                <div className="disc-category-group">
+                  <h4 className="disc-category-title">Putters</h4>
+                  <ul className="disc-list">
+                    <li><a href="https://infinitediscs.com/gateway-wizard" target="_blank" rel="noopener noreferrer" className="disc-link"><span className="disc-name">Gateway Wizard</span></a><span className="disc-count">×2</span></li>
+                    <li><a href="https://infinitediscs.com/innova-nova" target="_blank" rel="noopener noreferrer" className="disc-link"><span className="disc-name">Innova Nova</span></a><span className="disc-count">×2</span></li>
+                    <li><a href="https://infinitediscs.com/gateway-warspear" target="_blank" rel="noopener noreferrer" className="disc-link"><span className="disc-name">Gateway Warspear</span></a><span className="disc-count">×3</span></li>
+                  </ul>
+                </div>
+                <div className="disc-category-group">
+                  <h4 className="disc-category-title">Midranges</h4>
+                  <ul className="disc-list">
+                    <li><a href="https://infinitediscs.com/innova-mako3" target="_blank" rel="noopener noreferrer" className="disc-link"><span className="disc-name">Innova Mako3</span></a><span className="disc-count">×2</span></li>
+                    <li><a href="https://infinitediscs.com/gateway-warrior" target="_blank" rel="noopener noreferrer" className="disc-link"><span className="disc-name">Gateway Warrior</span></a></li>
+                    <li><a href="https://infinitediscs.com/gateway-mystic" target="_blank" rel="noopener noreferrer" className="disc-link"><span className="disc-name">Gateway Mystic</span></a></li>
+                  </ul>
+                </div>
+                <div className="disc-category-group">
+                  <h4 className="disc-category-title">Fairway Drivers</h4>
+                  <ul className="disc-list">
+                    <li><a href="https://infinitediscs.com/disctroyer-stork" target="_blank" rel="noopener noreferrer" className="disc-link"><span className="disc-name">Disctroyer Stork</span></a></li>
+                    <li><a href="https://infinitediscs.com/gateway-sabre" target="_blank" rel="noopener noreferrer" className="disc-link"><span className="disc-name">Gateway Sabre</span></a></li>
+                    <li><a href="https://infinitediscs.com/innova-teebird" target="_blank" rel="noopener noreferrer" className="disc-link"><span className="disc-name">Innova Teebird</span></a><span className="disc-count">×3</span></li>
+                  </ul>
+                </div>
+                <div className="disc-category-group">
+                  <h4 className="disc-category-title">Distance Drivers</h4>
+                  <ul className="disc-list">
+                    <li><a href="https://infinitediscs.com/innova-boss" target="_blank" rel="noopener noreferrer" className="disc-link"><span className="disc-name">Innova Boss</span></a><span className="disc-count">×4</span></li>
+                    <li><a href="https://infinitediscs.com/gateway-aura" target="_blank" rel="noopener noreferrer" className="disc-link"><span className="disc-name">Gateway Aura</span></a></li>
+                    <li><a href="https://infinitediscs.com/wild-discs-great-white" target="_blank" rel="noopener noreferrer" className="disc-link"><span className="disc-name">Wild Discs Great White</span></a></li>
+                    <li><a href="https://infinitediscs.com/innova-firebird" target="_blank" rel="noopener noreferrer" className="disc-link"><span className="disc-name">Innova Firebird</span></a><span className="disc-count">×2</span></li>
+                  </ul>
+                </div>
+              </div>
               <div className="disc-social">
                 <h3>Follow My Game</h3>
                 <div className="disc-social-icons">

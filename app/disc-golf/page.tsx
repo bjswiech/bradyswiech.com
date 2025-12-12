@@ -32,19 +32,18 @@ export default function DiscGolfPage() {
         <p>Here&apos;s what I carry:</p>
         <ul>
           <li>
-            <strong>Putters:</strong> Mint Discs UFO (favorite), Innova Nova (×3), Innova AviarX3
+            <strong>Putters:</strong> Gateway Wizard (x2), Innova Nova (×2), Gateway Warspear (x3)
           </li>
           <li>
-            <strong>Midranges:</strong> Innova Roc3, Legacy Recluse, Discmania Origin, 
-            Latitude 64 Compass, Innova RocX3
+            <strong>Midranges:</strong> Innova Mako3 (x2), Gateway Warrior, Gateway Mystic
           </li>
           <li>
-            <strong>Fairway Drivers:</strong> Mint Discs Jackalope, Mint Discs Alpha, 
-            Innova Teebird, Prodigy F1
+            <strong>Fairway Drivers:</strong> Disctroyer Stork,  Gateway Sabre, 
+            Innova Teebird (x3)
           </li>
           <li>
-            <strong>Distance Drivers:</strong> MVP Timelapse, Innova Boss, Wild Discs Great White, 
-            Innova Destroyer, Discraft Vulture (×2)
+            <strong>Distance Drivers:</strong> Innova Boss (x4), Gateway Aura, Wild Discs Great White
+            , Innova Firebird (x2)
           </li>
         </ul>
       </section>
