@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# bradyswiech.com
+
+Personal portfolio website for Brady Swiech - Computer Science student at Calvin University, competitive disc golfer, and developer.
+
+## About
+
+This is a modern single-page scroll website built with Next.js, featuring:
+- Smooth scroll animations
+- Responsive design
+- Dark theme with green accent colors
+- Sections for About, Projects, Disc Golf, and Faith
+
+## Tech Stack
+
+- **Framework:** Next.js 15
+- **Language:** TypeScript
+- **Styling:** CSS with custom animations
+- **Icons:** Font Awesome, Lucide React
 
 ## Getting Started
 
-First, run the development server:
+First, install dependencies:
+
+```bash
+npm install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `app/` - Next.js app router pages and layout
+- `components/` - React components (Header, Footer, ProjectCard)
+- `styles/` - Global CSS styles
+- `public/` - Static assets (images, logos)
 
-## Learn More
+## Sections
 
-To learn more about Next.js, take a look at the following resources:
+- **Home** - Hero section with introduction
+- **About** - Education and background
+- **Projects** - Portfolio of software projects
+- **Disc Golf** - PDGA stats and disc bag
+- **Faith** - Personal testimony
+- **Contact** - Social links and email
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This site can be deployed on Vercel, Netlify, or any platform that supports Next.js.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Built with ❤️ by Brady Swiech
