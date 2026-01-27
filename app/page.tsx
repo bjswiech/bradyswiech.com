@@ -170,6 +170,12 @@ export default function Home() {
               link="https://github.com/calvin-cs336-finalproject/sprout-client"
               techStack={['React', 'Node.js', 'Firebase', 'TypeScript']}
             />
+            <ProjectCard
+              title="bradyswiech.com - Personal Website"
+              description="My personal portfolio website showcasing my projects, skills, disc golf achievements, and faith journey. Features include auto-updating PDGA rating integration, responsive design with smooth scrolling navigation, and dynamic content sections."
+              link="https://github.com/bjswiech/bradyswiech.com"
+              techStack={['Next.js', 'TypeScript', 'CSS3', 'React']}
+            />
           </div>
         </div>
       </section>

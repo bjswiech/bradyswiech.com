@@ -1,36 +1,115 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# bradyswiech.com
 
-## Getting Started
+Personal website and portfolio for Brady Swiech, showcasing projects, skills, disc golf achievements, and faith journey.
 
-First, run the development server:
+## 🚀 Features
 
+- **Portfolio Showcase**: Display of projects including Vigil and Sprout
+- **Skills & Technologies**: Interactive technology stack organized by category
+- **Disc Golf Section**: 
+  - Auto-updating PDGA rating (fetches on the 14th of each month)
+  - Rating change indicators with up/down arrows
+  - Disc bag inventory with links to Infinite Discs
+  - Social media links for disc golf content
+- **Faith Testimony**: Personal testimony and scripture
+- **Responsive Design**: Mobile-friendly navigation with hamburger menu
+- **Smooth Scrolling**: Section-based navigation with active section highlighting
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 15 with App Router
+- **Language**: TypeScript
+- **Styling**: CSS3 with custom animations and gradients
+- **Icons**: FontAwesome, Lucide React
+- **Deployment**: GitHub Pages / Vercel ready
+
+## 📦 Getting Started
+
+### Prerequisites
+
+- Node.js 18+ 
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/bjswiech/bradyswiech.com.git
+cd bradyswiech.com
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## Learn More
+## 🏗️ Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+bradyswiech.com/
+├── app/
+│   ├── about/          # About page
+│   ├── api/
+│   │   └── pdga-rating/  # API route for PDGA rating fetching
+│   ├── contact/        # Contact page
+│   ├── disc-golf/      # Disc golf page
+│   ├── faith/          # Faith testimony page
+│   ├── portfolio/      # Portfolio page
+│   ├── layout.tsx      # Root layout
+│   └── page.tsx        # Main homepage
+├── components/
+│   ├── footer.tsx      # Footer component
+│   ├── header.tsx      # Navigation header
+│   └── project-card.tsx # Project card component
+├── public/             # Static assets
+├── styles/
+│   └── globals.css     # Global styles
+└── data/               # Cached PDGA rating data (gitignored)
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔧 Key Features Explained
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### PDGA Rating Auto-Update
 
-## Deploy on Vercel
+The website automatically fetches the PDGA rating from the PDGA website:
+- Fetches on the 14th of each month (when ratings are updated)
+- Caches data locally to reduce API calls
+- Shows rating change from previous month with visual indicators
+- Falls back to cached data if fetch fails
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Responsive Navigation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Desktop: Horizontal navigation bar with active section highlighting
+- Mobile: Hamburger menu with full-screen overlay
+- Smooth scroll to sections with offset for fixed header
+
+## 📝 Scripts
+
+- `npm run dev` - Start development server with Turbopack
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+
+## 🌐 Deployment
+
+The site can be deployed to:
+- **Vercel**: Recommended for Next.js apps
+- **GitHub Pages**: Configured for static export
+- **Netlify**: Compatible with Next.js
+
+## 📧 Contact
+
+- **Email**: bjswiech.bs@gmail.com
+- **LinkedIn**: [brady-swiech-1a8a59239](https://linkedin.com/in/brady-swiech-1a8a59239)
+- **GitHub**: [bjswiech](https://github.com/bjswiech)
+
+## 📄 License
+
+This project is private and personal.
