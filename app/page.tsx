@@ -106,7 +106,7 @@ export default function Home() {
           <div className="about-content">
             <div className="about-text">
               <p>
-                I am a junior Computer Science student at Calvin University, passionate about 
+                I am a senior Computer Science student at Calvin University, passionate about 
                 building software solutions and competing in collegiate disc golf.
               </p>
               <p>
