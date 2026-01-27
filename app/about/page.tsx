@@ -8,7 +8,7 @@ export default function About() {
       <section className="about-section">
         <h2 className="section-title">Who I Am</h2>
         <p>
-          Hi! I&apos;m Brady Swiech — a junior Computer Science major at Calvin University, 
+          Hi! I&apos;m Brady Swiech — a senior Computer Science major at Calvin University, 
           based in Jenison, Michigan. I&apos;m passionate about full-stack development, 
           artificial intelligence, and using software to make a positive impact.
         </p>
