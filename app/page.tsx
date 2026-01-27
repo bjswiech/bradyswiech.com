@@ -6,10 +6,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faTiktok, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 const technologies = {
-  Frontend: ['React', 'React Native', 'Next.js', 'HTML5', 'CSS3'],
-  Backend: ['Node.js', 'PostgreSQL', 'Firebase', 'SQLite'],
+  Frontend: ['React', 'React Native', 'Next.js', 'Expo', 'HTML5', 'CSS3'],
+  Backend: ['Node.js', 'PostgreSQL', 'Firebase'],
   Languages: ['TypeScript', 'JavaScript', 'Python', 'Java', 'C++'],
-  Tools: ['Git & GitHub', 'Figma', 'VS Code'],
+  Tools: ['Git & GitHub', 'VS Code', 'Figma', 'Vercel', 'ESLint', 'npm'],
 };
 
 export default function Home() {

@@ -6,10 +6,10 @@ export default function Portfolio() {
   const [selectedCategory, setSelectedCategory] = useState<keyof typeof technologies>('Frontend');
 
   const technologies = {
-    Frontend: ['React', 'React Native', 'Next.js', 'HTML', 'CSS'],
-    Backend: ['Node.js', 'SQLite', 'PostgreSQL', 'Firebase'],
+    Frontend: ['React', 'React Native', 'Next.js', 'Expo', 'HTML', 'CSS'],
+    Backend: ['Node.js', 'PostgreSQL', 'Firebase'],
     Languages: ['TypeScript', 'JavaScript', 'Python', 'Java', 'C++'],
-    Tools: ['Git & GitHub', 'Figma', 'VS Code'],
+    Tools: ['Git & GitHub', 'VS Code', 'Figma', 'Vercel', 'ESLint', 'npm'],
   };
 
   return (
