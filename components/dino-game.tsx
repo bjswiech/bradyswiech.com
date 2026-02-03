@@ -6,7 +6,7 @@ export default function DinoGame() {
   const [gameState, setGameState] = useState<'idle' | 'playing' | 'gameOver'>('idle');
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
-  const gameLoopRef = useRef<number>();
+  const gameLoopRef = useRef<number | undefined>(undefined);
   const playerRef = useRef({ x: 100, y: 150, width: 50, height: 50, velocityY: 0 });
   const pipesRef = useRef<Array<{ x: number; topHeight: number; gapY: number; gapHeight: number; passed: boolean }>>([]);
   const gameSpeedRef = useRef(2);
