@@ -20,9 +20,12 @@ export default function Home() {
   const sectionsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Fetch PDGA rating
+    // Fetch PDGA rating (only works on server-side, gracefully fails on static export)
     fetch('/api/pdga-rating')
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) throw new Error('API not available');
+        return res.json();
+      })
       .then(data => {
         if (data.rating) {
           const currentRating = parseInt(data.rating);
@@ -37,8 +40,9 @@ export default function Home() {
         }
       })
       .catch(err => {
-        console.error('Failed to fetch PDGA rating:', err);
-        // Keep default rating if fetch fails
+        // API route not available in static export - use default rating
+        // This is expected for GitHub Pages deployment
+        console.log('PDGA rating API not available (static export mode)');
       });
 
     const observer = new IntersectionObserver(
