@@ -258,12 +258,13 @@ export default function DinoGame() {
 
         // Collision detection with pipes
         const player = playerRef.current;
+        const hitboxPadding = 0;
         for (const pipe of pipesRef.current) {
           // Check collision with top pipe
           if (
-            player.x < pipe.x + pipeWidthRef.current &&
-            player.x + player.width > pipe.x &&
-            player.y < pipe.topHeight
+            player.x + hitboxPadding < pipe.x + pipeWidthRef.current &&
+            player.x + player.width - hitboxPadding > pipe.x &&
+            player.y + hitboxPadding < pipe.topHeight
           ) {
             setGameState('gameOver');
             if (scoreRef.current > highScoreRef.current) {
@@ -277,9 +278,9 @@ export default function DinoGame() {
           
           // Check collision with bottom pipe
           if (
-            player.x < pipe.x + pipeWidthRef.current &&
-            player.x + player.width > pipe.x &&
-            player.y + player.height > pipe.gapY + pipe.gapHeight
+            player.x + hitboxPadding < pipe.x + pipeWidthRef.current &&
+            player.x + player.width - hitboxPadding > pipe.x &&
+            player.y + player.height - hitboxPadding > pipe.gapY + pipe.gapHeight
           ) {
             setGameState('gameOver');
             if (scoreRef.current > highScoreRef.current) {
@@ -338,7 +339,7 @@ export default function DinoGame() {
       frameCountRef.current = 0;
     } else if (gameStateRef.current === 'playing') {
       // Flap (go up)
-      playerRef.current.velocityY = -8;
+      playerRef.current.velocityY = -6;
     }
   }, []);
 
