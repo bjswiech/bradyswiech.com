@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import ProjectCard from '../components/project-card';
+import DinoGame from '../components/dino-game';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faTiktok, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
@@ -105,7 +106,7 @@ export default function Home() {
           <h2 className="section-title">About Me</h2>
           <div className="about-content">
             <div className="about-text">
-              <p>
+          <p>
                 I am a senior Computer Science student at Calvin University, passionate about 
                 building software solutions and competing in collegiate disc golf.
               </p>
@@ -114,7 +115,7 @@ export default function Home() {
                 creativity and innovation. I have a passion for creating and building systems, 
                 whether it be a new software project or solving complex problems. I am always 
                 looking to learn and grow, and I am constantly seeking new challenges and opportunities.
-              </p>
+          </p>
             </div>
             <div className="about-badges">
               <div className="badge">Developer</div>
@@ -278,7 +279,7 @@ export default function Home() {
           <h2 className="section-title">Faith</h2>
           <div className="faith-content">
             <div className="faith-text">
-              <p>
+          <p>
                 On <strong>February 12, 2025</strong>, everything changed. After years of 
                 battling depression and feeling spiritually distant, I cried out to God with 
                 an honest question — should I move on or keep hoping? On that very day, 
@@ -319,6 +320,19 @@ export default function Home() {
                 className="faith-image"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Game Section */}
+      <section id="game" className="section animate-section">
+        <div className="section-container">
+          <h2 className="section-title">Game</h2>
+          <div className="game-content">
+            <p>
+              Try to beat my high score! Jump over obstacles by pressing SPACE or clicking.
+            </p>
+            <DinoGame />
           </div>
         </div>
       </section>

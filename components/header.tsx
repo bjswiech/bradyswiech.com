@@ -10,7 +10,7 @@ export default function Header() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
       
-      const sections = ['home', 'about', 'skills', 'portfolio', 'disc-golf', 'faith', 'contact'];
+      const sections = ['home', 'about', 'skills', 'portfolio', 'disc-golf', 'faith', 'game', 'contact'];
       const scrollPosition = window.scrollY + 150;
 
       // Check if we're at the very top of the page
@@ -74,7 +74,7 @@ export default function Header() {
         />
       )}
       <header className={`header ${scrolled ? 'scrolled' : ''}`}>
-        <nav className="nav">
+      <nav className="nav">
           <button className="nav-logo" onClick={() => scrollToSection('home')}>
             <span className="logo-text">Brady Swiech</span>
           </button>
@@ -110,6 +110,12 @@ export default function Header() {
               Faith
             </button>
             <button 
+              className={`nav-link ${activeSection === 'game' ? 'active' : ''}`}
+              onClick={() => scrollToSection('game')}
+            >
+              Game
+            </button>
+            <button 
               className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`}
               onClick={() => scrollToSection('contact')}
             >
@@ -122,13 +128,13 @@ export default function Header() {
             >
               Email Me
             </a>
-          </div>
+        </div>
           <div className="nav-right">
             <div className="nav-divider"></div>
             <a href="mailto:bjswiech.bs@gmail.com" className="nav-cta">
               Email Me
             </a>
-          </div>
+        </div>
           <button 
             className="mobile-menu-toggle"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -140,8 +146,8 @@ export default function Header() {
               <span></span>
             </span>
           </button>
-        </nav>
-      </header>
+      </nav>
+    </header>
     </>
   );
 }
